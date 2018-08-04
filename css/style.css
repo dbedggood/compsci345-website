@@ -1,0 +1,226 @@
+.navbar {
+    height: 70px;
+    background-color: #254669;
+}
+
+.navbar-inverse .navbar-brand {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 300%;
+    font-weight: lighter;
+    font-family: Impact, sans-serif;
+    line-height: 40px;
+}
+
+.navbar-inverse .navbar-text, .navbar-inverse .navbar-nav li a {
+    color: rgb(255, 255, 255);
+    line-height: 40px;
+    font-size: 20px;
+}
+
+.navbar-inverse .navbar-nav li a:hover {
+    color: rgb(212, 212, 212);
+ }
+
+.badge {
+    background-color: #f44336;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: -10px;
+}
+
+.wallpaper {
+    background-color: #192f46
+}
+
+main.container {
+    padding: 0px;
+    height: 85vh;
+}
+
+.messaging.column {
+    padding-left: 0px;
+}
+
+.chat {
+    height: 48%;
+}
+
+.chatbox {
+    height: 90%;
+    margin-bottom: 10px;
+    padding: 10px 35px 10px 10px;
+    overflow: auto;
+    background: #FFFFFF;
+}
+
+.bordered {
+    border-style: solid;
+    border-color: rgb(212, 212, 212);
+    border-width: 1px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.no-padding {
+    padding: 0px;
+}
+
+.message .bordered{
+    margin-bottom: 15px;
+    padding: 3px 5px;
+    display: inline-block;
+    white-space: normal;
+    font-size: 12px;
+}
+
+.form-control {
+    width: 85%;
+}
+
+.list-group-item .online {
+    color: #44a464;
+}
+
+.list-group-item * {
+    display: inline-block;
+    line-height: 21px;
+    font-size: 12px;
+}
+
+.messaging .list-group-item * {
+    line-height: 12px;
+}
+
+.selected {
+    background-color: #bddcff;
+}
+
+p.list-group-item-text {
+    float: right;
+    text-align: left;
+}
+
+.messaging p.list-group-item-heading {
+    font-size: 14px;
+}
+
+.content .list-group-item h4 {
+    display: inline-block;
+    line-height: 40px;
+    font-size: 24px;
+}
+
+.content .list-group-item-text {
+    padding-top: 10px;
+}
+
+.content.column {
+    padding-right: 30px;
+}
+
+.column .inner {
+    padding: 0px 20px;
+    background-color: #F6F2F5;
+    border-color: darkgrey;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    height: 100%;
+    overflow: auto;
+}
+
+.content .inner p {
+    font-size: 16px;
+}
+
+.heading {
+    width: 100%;
+    display:inline-block;
+    margin-bottom: -10px;
+  }
+
+.text-editor {
+    padding: 20px 35px 20px 30px;
+    overflow: auto;
+    height: 50%;
+    background: #FFFFFF;
+}
+
+.content .text-editor p {
+    font-size: 12px;
+}
+
+h1, h2 {
+    font-weight: lighter;
+    font-family: Impact, sans-serif;
+}
+
+[contenteditable]:focus {
+    outline: 0px solid transparent;
+}
+
+.feedback-box {
+    height: 22%;
+    margin-bottom: 10px;
+    padding: 20px 50px 20px 30px;
+    overflow: auto;
+    background: #FFFFFF;
+}
+
+.task-box {
+    height: 75%;
+    margin-bottom: 10px;
+    padding: 20px 50px 20px 30px;
+    overflow: auto;
+    background: #FFFFFF;
+}
+
+.feedback-text {
+    padding: 10px;
+}
+
+.feedback-input {
+    margin: 20px 0px;
+}
+
+.btn-primary {
+    background-color: #254669;
+}
+
+.alert {
+    margin: 10px 100px;
+}
+
+/* SOURCE https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_scrollbar2 */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px darkgrey; 
+    border-radius: 20px;
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(212, 212, 212); 
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: darkgrey; 
+}
+
+/* END SOURCE */
+
+/* SOURCE http://getbootstrap.com.vn/examples/equal-height-columns/equal-height-columns.css */
+
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+}
+
+/* END SOURCE */

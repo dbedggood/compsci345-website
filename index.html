@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Physical Education</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#task-content").show();
+        $("#peers-content").hide();
+        $("#peers-assignment").hide();
+        $("#editor-content").hide();
+
+
+
+    $("#bell").click(function(){
+        $("#badge").hide();
+    });
+
+    $("#task").click(function(){
+        $("#task-content").show();
+        $("#peers-content").hide();
+        $("#peers-assignment").hide();
+        $("#editor-content").hide();
+    });
+
+    $("#peers").click(function(){
+        $("#task-content").hide();
+        $("#peers-content").show();
+        $("#peers-assignment").hide();
+        $("#editor-content").hide();
+    });
+
+    $(".open-peers-assignment").click(function(){
+        $("#task-content").hide();
+        $("#peers-content").hide();
+        $("#peers-assignment").show();
+        $("#editor-content").hide();
+    });
+
+    $("#editor").click(function(){
+        $("#task-content").hide();
+        $("#peers-content").hide();
+        $("#peers-assignment").hide();
+        $("#editor-content").show();
+        $("#badge").hide();
+    });
+
+    $("#editor-button").click(function(){
+        $("#task-content").hide();
+        $("#peers-content").hide();
+        $("#peers-assignment").hide();
+        $("#editor-content").show();
+        $("#badge").hide();
+    });
+
+});
+
+function sendMessage() {
+    var message = document.getElementById("message").value
+    document.getElementById("message").value = ""
+    document.getElementById("chatbox").innerHTML += "<div class=\"row message\"><div class=\"col-md-3\"><strong>You: </strong></div><div class=\"col-md-9 no-padding\"><p class=\"bordered\">" + message + "</p></div></div>"
+    $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+}
+
+function sendFeedback() {
+    var feedback = document.getElementById("feedback").value
+    document.getElementById("feedback").value = ""
+    document.getElementById("feedback-box").innerHTML += "<div class=\"row\"><div class=\"col-md-2\"><h4><strong>You: </strong></h4></div><div class=\"col-md-10 no-padding\"><p class=\"bordered feedback-text\">" + feedback + "</p></div></div>"
+}
+
+function submit() {
+    document.getElementById("submit").innerText = "Resubmit Assignment"
+}
+
+    </script>
+
+</head>
+
+<body class="wallpaper">
+
+    <!-- SOURCE https://www.w3schools.com/bootstrap/bootstrap_navbar.asp -->
+
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Physical Education</a>
+            </div>
+            <ul class="nav navbar-nav white-text">
+                <li>
+                    <a href="#" id="task">Task</a>
+                </li>
+                <li>
+                    <a href="#" id="editor">Editor</a>
+                </li>
+                <li>
+                    <a href="#" id="peers">Peers</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+                <li>
+                    <a href="#">
+                        <span class="glyphicon glyphicon-bell" id="bell"><span class="badge" id="badge">2</span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="glyphicon glyphicon-question-sign"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="glyphicon glyphicon-cog"></span>
+                    </a>
+                </li>
+            </ul>
+            <p class="navbar-text pull-right">Logged in as
+                <strong>Daniel</strong>
+            </p>
+        </div>
+    </nav>
+    
+    <!-- END SOURCE -->
+
+    <main class="container">
+
+        <div class="row row-eq-height">
+
+            <div class="messaging col-md-3 column">
+                <div class="inner">
+                    <h2>Classmates</h2>
+
+                    <!-- SOURCE https://www.w3schools.com/bootstrap/bootstrap_list_groups.asp -->
+
+                    <div class="list-group">
+                        <a href="#" class="list-group-item selected">
+                            <p class="list-group-item-heading">Alan</p>
+                            <p class="list-group-item-text">Online
+                                <span class="glyphicon glyphicon-ok-sign online"></span>
+                            </p>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <p class="list-group-item-heading">Mikayla</p>
+                            <p class="list-group-item-text">Online
+                                <span class="glyphicon glyphicon-ok-sign online"></span>
+                            </p>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <p class="list-group-item-heading">Steve</p>
+                            <p class="list-group-item-text">Online
+                                <span class="glyphicon glyphicon-ok-sign online"></span>
+                            </p>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <p class="list-group-item-heading">Frank</p>
+                            <p class="list-group-item-text">Offline
+                                <span class="glyphicon glyphicon-minus-sign"></span>
+                            </p>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <p class="list-group-item-heading">Patrick</p>
+                            <p class="list-group-item-text">Offline
+                                <span class="glyphicon glyphicon-minus-sign"></span>
+                            </p>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <p class="list-group-item-heading">Rena</p>
+                            <p class="list-group-item-text">Offline
+                                <span class="glyphicon glyphicon-minus-sign"></span>
+                            </p>
+                        </a>
+                    </div>
+                    <hr>
+
+                    <!-- END SOURCE -->
+
+                    <div class="chat">
+                        <h2>Messages</h2>
+                        <div class="chatbox bordered" id="chatbox">
+
+                            <div class="row message">
+                                <div class="col-md-3">
+                                    <strong>You: </strong>
+                                </div>
+                                <div class="col-md-9 no-padding">
+                                    <p class="bordered">hey</p>
+                                </div>
+                            </div>
+
+                            <div class="row message">
+                                <div class="col-md-3">
+                                    <strong>Alan: </strong>
+                                </div>
+                                <div class="col-md-9 no-padding">
+                                    <p class="bordered">what's up bro</p>
+                                </div>
+                            </div>
+
+                            <div class="row message">
+                                <div class="col-md-3">
+                                    <strong>You: </strong>
+                                </div>
+                                <div class="col-md-9 no-padding">
+                                    <p class="bordered">can you have a look at my assignment before i submit?</p>
+                                </div>
+                            </div>
+
+                            <div class="row message">
+                                <div class="col-md-3">
+                                    <strong>Alan: </strong>
+                                </div>
+                                <div class="col-md-9 no-padding">
+                                    <p class="bordered">sure, can you check mine too</p>
+                                </div>
+                            </div>
+
+                            <div class="row message">
+                                <div class="col-md-3">
+                                    <strong>You: </strong>
+                                </div>
+                                <div class="col-md-9 no-padding">
+                                    <p class="bordered">yeah</p>
+                                </div>
+                            </div>
+
+                            <div class="row message">
+                                <div class="col-md-3">
+                                    <strong>Alan: </strong>
+                                </div>
+                                <div class="col-md-9 no-padding">
+                                    <p class="bordered">done</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <form>
+                            <div class="input-group">
+                                <input type="text" id="message" class="form-control" placeholder="Type a message...">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit" onclick="sendMessage()">
+                                        <i class="glyphicon glyphicon-send"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="content col-md-9 column">
+                <div class="inner">
+                    <div id="task-content">
+                    <div class='heading'>
+                        <div style='float: left;'>
+                            <h1>Health and Exercise</h1>
+                        </div>
+                        <div style='float: right; padding-top: 15px; padding-left: 20px;'>
+                            <a href="#" id="editor-button">
+                                <button class="btn btn-primary btn-lg">Open in Editor</button>
+                            </a>
+                        </div>
+                        <div style='float: right; padding-top: 28px; color: grey;'>
+                            <h4>
+                                <em>Due: 11:00 AM 23/05/2018</em>
+                            </h4>
+                        </div>
+                    </div>
+                    <hr>
+                    <h4>
+                        <strong>Task: </strong>Evaluate physical activity experiences to devise strategies for lifelong well-being.</h4>
+                    <hr>
+                    <div class="bordered task-box">
+                    <p>
+                        <strong>Brief:</strong>
+                    </p>
+                    <p>Write about physical activity experiences from your life to date. They could be childhood play, games
+                        and pastimes, sport, fitness, recreation, outdoor pursuits, aquatics, dance, kapa haka, and cultural
+                        festival performances.</p>
+
+                    <p>Question and challenge assumptions about the relationship between the experiences; and the potential
+                        impact of the experiences on lifelong well-being.</p>
+
+                    <hr>
+                    <p>
+                        <strong>Notes:</strong>
+                    </p>
+                    <p>Well-being refers to a notion of a healthy lifestyle in which all the dimensions of hauora are included.
+                        An inter-relatedness of the dimensions is a part of evaluation and critical evaluation. It is suggested
+                        that well-being be explored through the concept of hauora as described by the whare tapa whā model
+                        (Durie, M. (1994): Whaiora - Maori Health Development. Auckland: Oxford University Press).</p>
+                    <p>Lifelong well-being refers to life beyond school, future well-being needs, and the role and place of
+                        physical activity within these.</p>
+                    <p>Devise strategies involves considering what plans may need to be put into place to be proactive in ensuring
+                        that physical activity continues to be a part of the life of the student. Strategies will be informed
+                        by prior physical activity experiences and knowledge of anticipated future well-being needs.</p></div>
+
+                    </div>
+
+                    <div id="editor-content">
+
+                            <div class='heading'>
+                                    <div style='float: left;'>
+                                        <h1>Health and Exercise</h1>
+                                    </div>
+                                    <div style='float: right; padding-top: 15px; padding-left: 20px;'>
+                                        <a href="#">
+                                            <button class="btn btn-primary btn-lg" id="submit" onclick="submit()">Submit Assignment</button>
+                                        </a>
+                                    </div>
+                                    <div style='float: right; padding-top: 28px; color: grey;'>
+                                        <h4>
+                                            <em>Due: 11:00 AM 23/05/2018</em>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <hr>
+                                <h4>
+                                    <strong>Task: </strong>Evaluate physical activity experiences to devise strategies for lifelong well-being.</h4>
+                                <hr>
+            
+                                <div contenteditable="true" class="text-editor bordered">
+                                    <p>With respect to cricket, this initially began at age 4-5 with ‘backyard’ cricket with my dad, where
+                                        I developed a sense of fun and enjoyment for and from 'the game'. This enjoyment lead to participation
+                                        in junior club cricket programmes throughout primary school where I played in teams, predominantly
+                                        made up of close school friends. This lead to even stronger friendships, which in turn, positively
+                                        influenced my willingness to continue with cricket, even though the transition to 'hard ball'
+                                        cricket (where a lot of kids stopped playing due to a lack of skill development and the fact
+                                        that you could now get really hurt if struck with the ball).</p>
+                                    <p>
+                                        I thoroughly enjoyed spending time with my friends in an environment, other than school, whereby we were learning team values
+                                        and "how to work together". Additionally, having good coaches at an early age allowed for the
+                                        continued participation in cricket. These were because the coaches had been keen competitors,
+                                        were passionate about the game, and had the appropriate skills and maturity to strike a balance
+                                        between competing and participation. I was able to look up to and respect my coaches as a result.
+                                        This then created a sense of idolism in me whereby I wanted to pursue cricket at an early age
+                                        because 'Coach (name removed) thinks cricket is great'. These coaches also effectively created
+                                        an enjoyable environment whereby a foundation was set for cricket to be fun as well as competitive.
+                                        Because of this early exposure to a positive attitude, I was able to continue to build on this
+                                        foundation after leaving the junior team, progressing through the years and increasing levels
+                                        of ability. As a result of these factors, negative external influences where minimised, which
+                                        again, resulted in my further participation in cricket, as I was not disheartened or "turned
+                                        off' cricket at an early age. Consequently, through this exposure, I was able to development
+                                        further skill leading to a natural talent for aggressive batting and athletic fielding being
+                                        identified…
+                                    </p>
+                                    <p>Many social, cultural, and economic factors have influenced my participation in physical activity.
+                                        Firstly my family, friends and the environment in which I live have played a positive role in
+                                        my physical activity participation. I have been brought up in a family environment which promotes
+                                        participation to physical activity, in any particular way, resulting in this attitude being nurtured
+                                        in me from an early age. Both of my parents were once competitive body builders and remain physically
+                                        active to this day. Bodybuilding is a sport that requires total commitment and determination
+                                        in order to succeed. I have, therefore, adopted the same attitude towards physical activity,
+                                        and consequently have had a degree of success, which has allowed me to consciously and somewhat
+                                        'naturally' continue with physical activity. Additionally my parents have encouraged me to adhere
+                                        to sporting activity as the strongly believe that sport teaches valuable life lessons, such as
+                                        how to win and how to lose, that can be applied to life. 'State of Play' research states "Some
+                                        parents view sport as a vehicle that improves life skills such as teamwork, communication, discipline
+                                        and general social skills". This has been a predominant focal point in my upbringing, with my
+                                        parents consistently emphasizing that valuable lessons learnt through sport, are easily translated
+                                        and applied to life, in areas such as work and socializing. As a result of this I gained further
+                                        mental and spiritual benefits. This is because the valuable lessons I was learning through sport,
+                                        were essentially laying a dominant foundation for my overall values system which have been influential
+                                        in developing my individuality…
+                                    </p>
+                                    <p>The community has provided a real sense of belonging in a sporting sense. Starting off playing junior
+                                        cricket and football for the community clubs has progressed, through sport in the community,
+                                        into my final year at College. ln an holistic sense, this sense of community has been engrained
+                                        in me since I was 5 years old, and has, therefore, created a strong sense of pride and spiritual
+                                        wellbeing in representing l my schools and a strong sense of community belonging.
+                                    </p>
+                                    <p>ln the early years of my sporting life, activity and sports participation was gender-mixed. Girls
+                                        and boys were given equal opportunity in a wide variety of activities in lower age level sports,
+                                        girls often exceeding the physical prowess of the boys at that younger age. Throughout my life
+                                        however, gender based pressures have never affected my choices or adherence to a type of physical
+                                        activity,for example, playing rugby for feelings of masculinity or playing cricket because that
+                                        is a middle class activity. I have simply pursued the activities that I have been most talented
+                                        in, and therefore enjoyed the most. I continue to play these sports based on the positive experiences
+                                        that I had when younger and not because of the stereotype surrounded by these sports. However,
+                                        although I was not directly affected, I have been aware of naturally occurring factors related
+                                        to gender in sport at a subconscious level. This included factors such as, as age increased,
+                                        sport became influenced by common societal stereotypes, namely, what gender should play what
+                                        sport. As a male, I have played sports that, sociologically, it was 'natural for me to play,
+                                        resulting in positive well-being, irrespective of my gender. However, participation in sport
+                                        could have negative outcomes where a participant did not fit or meet societal norms, for example,
+                                        a male wanting to play netball, or, a young woman wanting to play football or rugby in a men's
+                                        team. Sports participation and the positive spin-offs that come from physical activity would
+                                        become secondary in the circumstances as outlined, the predominant drivers being, arguably, social
+                                        identity, self-worth, and stereotypical prejudice.</p>
+                                    <p>Media focus has had some influence on my physical activity and participation but has not directly
+                                        influenced my choices of activity. However, through the emphasis of the benefits of being physically
+                                        active through media, and increased societal awareness around the benefits of physical activity,
+                                        I learned at an early age that being fit enabled me to enjoy the game more as well as provide
+                                        a sense of greater well-being. Playing a highly physically demanding sport like basketball required
+                                        me to attain and maintain a high fitness level. As a result of this I felt better in myself,
+                                        and confident that I was partaking in a positive lifestyle choice. These attitudes then lead
+                                        to the knowledge that a physically demanding sport required healthy eating habits and healthy
+                                        life-style choices. For example, the need to play a full days' cricket would mean that I would
+                                        not go out late and party the night before.
+                                    </p>
+                                    <p>A very natural assumption exists that if a parent or parents of an individual is talented and experienced
+                                        at a particular sport or activity, the individual will to be good at that sport/activity also.
+                                        However, in challenging this assumption, this factor can actually be counter-productive; because
+                                        of the likelihood that the individual will be brought up being constantly pressured to succeed
+                                        and compete in the same field as their parents. For example, it has been assumed by people who
+                                        know my family, that I would be a talented pipe band drummer. My dad was ranked fourth in the
+                                        world for pipe band drumming, but this activity is one that does not interest me and I have not
+                                        participated in this, therefore challenging this natural assumption. This can lead to a sense
+                                        of disinterest and lack of personal identity in physical activity for the individual, as they
+                                        may simply not like the activity, but are being pressured to participate so that their parents
+                                        can 'relive' the experience. Also, the individual may strive for a sense of individuality, and
+                                        for that reason, not want to follow in the parents footsteps. ln my case, having parents that
+                                        do not participate in my chosen sports has been beneficial to my participation.</p>
+                                    <p>Another assumption is that because of my height I would naturally pursue basketball as a chosen sport.
+                                        This is a valid assumption in my case as I got introduced to basketball because I was always
+                                        tall for my age, and have continued to play since then. However, basketball isn't necessarily
+                                        a sport that requires you to be very tall (although it helps). Some of the most successful point
+                                        guards in the NBA have been less than 6 feet tall, but logical assumptions would suggest otherwise,
+                                        as the average height of an NBA point guard is 6 ft 3.</p>
+                                </div>
+
+                                <hr>
+<h2>Feedback</h2>
+                                <div class="feedback-box bordered">
+            
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <h4>
+                                                <strong>Rena: </strong>
+                                            </h4>
+                                        </div>
+                                        <div class="col-md-10 no-padding">
+                                            <p class="bordered feedback-text">I really liked the part where you challenged the assumption that if the parents are good
+                                                at something then the child must be good at it, too. I feel like this also applies to
+                                                other areas in life like careers. My parents are scientists but I just want to play sports!
+                                                    </p>
+                                        </div>
+                                    </div>
+            
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <h4>
+                                                <strong>Patrick: </strong>
+                                            </h4>
+                                        </div>
+                                        <div class="col-md-10 no-padding">
+                                            <p class="bordered feedback-text">I grew up playing cricket aswell, we should play a game sometime! After this assignment of
+                                                course...
+                                            </p>
+                                        </div>
+                                    </div>
+            
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <h4>
+                                                <strong>Steve: </strong>
+                                            </h4>
+                                        </div>
+                                        <div class="col-md-10 no-padding">
+                                            <p class="bordered feedback-text">this is so well written I can't find any flaws try asking Alan for some feedback lol</p>
+                                        </div>
+                                    </div>
+            
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <h4>
+                                                <strong>Alan: </strong>
+                                            </h4>
+                                        </div>
+                                        <div class="col-md-10 no-padding">
+                                            <p class="bordered feedback-text">Wow, this is better than mine! Just submit it as it is, should be good.</p>
+                                        </div>
+                                    </div>
+            
+            
+            
+            
+                                </div>
+
+                    </div>
+
+                    <div id="peers-content">
+
+                            <h1>View Peer Assignments</h1>
+                            <hr>
+        
+                            <!-- SOURCE https://www.w3schools.com/bootstrap/bootstrap_list_groups.asp -->
+        
+                            <div class="list-group">
+                                <a href="#" class="list-group-item open-peers-assignment">
+                                    <h4 class="list-group-item-heading">Rena</h4>
+                                    <p class="list-group-item-text">Last Updated: 06:03 PM, 18/05/2018</p>
+                                </a>
+                                <a href="#" class="list-group-item open-peers-assignment">
+                                    <h4 class="list-group-item-heading">Frank</h4>
+                                    <p class="list-group-item-text">Last Updated: 09:42 AM, 15/05/2018</p>
+                                </a>
+                                <a href="#" class="list-group-item open-peers-assignment">
+                                    <h4 class="list-group-item-heading">Alan</h4>
+                                    <p class="list-group-item-text">Last Updated: 11:10 PM, 08/05/2018</p>
+                                </a>
+                                <a href="#" class="list-group-item open-peers-assignment">
+                                    <h4 class="list-group-item-heading">Patrick</h4>
+                                    <p class="list-group-item-text">Last Updated: 06:58 PM, 04/05/2018</p>
+                                </a>
+                                <a href="#" class="list-group-item open-peers-assignment">
+                                    <h4 class="list-group-item-heading">Mikayla</h4>
+                                    <p class="list-group-item-text">Last Updated: 09:06 AM, 30/04/2018</p>
+                                </a>
+                                <a href="#" class="list-group-item open-peers-assignment">
+                                    <h4 class="list-group-item-heading">Steve</h4>
+                                    <p class="list-group-item-text">Last Updated: 11:23 PM, 27/04/2018</p>
+                                </a>
+                            </div>
+        
+                            <!-- END SOURCE -->
+
+                    </div>
+
+                    <div id="peers-assignment">
+
+                            <div class='heading'>
+                                    <div style='float: left;'>
+                                        <h1>Alan's Assignment</h1>
+                                    </div>
+                                </div>
+                                <hr>
+            
+                                <div class="text-editor bordered">
+                                    <p>Throughout my life physical activity has, and still does, play a big role. I have taken part in many
+                                        different types of sports which include cricket, basketball, football, tennis, swimming and many
+                                        other physical activities and games that I took part in through school. All of these different
+                                        type of physical activity have played a big role throughout my life up to this time and will
+                                        most likely keep on playing a big part in my life in the future. ln the second half of this essay
+                                        I will devise and plan strategies that can be used for lifelong wellbeing so that I ensure that
+                                        physical activity will continue to play a big part in my life.</p>
+                                    <p>
+                                        One of the major physical activities that I have participated in regularly throughout the majority of my life is cricket.
+                                        I was first influenced to start playing cricket by my dad, who had played cricket when he was
+                                        younger, and enjoys watching the sport. My mum also wanted me to be physically active and thought
+                                        that it would be a good idea for me to start playing cricket, This is because by being physically
+                                        active at a young age not only are you keeping fit and healthy, you are much more likely to "be
+                                        academically motivated, alert, and successful". Another thing that influenced me to start
+                                        playing cricket was that a lot of my friends were also playing cricket, which meant that I wanted
+                                        to play with them. The influence from my parents and friends was the major reason that I started
+                                        playing cricket. After I had played cricket for a while I grew to love the sport, which influenced
+                                        me to keep on playing. I played cricket all the way through to year 12, influenced by my love
+                                        of the sport, my parents who wanted me to keep playing, and the fact that a lot of my friends
+                                        were in my cricket team. At the end of year 12 I decided to stop playing cricket. This decision
+                                        was influenced by a few things. One of these things was that I no longer gained very much enjoyment
+                                        from playing cricket anymore, and the love that I had had for the sport during my younger years
+                                        was disappearing. Another influence was my coach, who I did not like very much as I felt that
+                                        he did not manage the team very well. I also did not like that cricket was taking up so much
+                                        of my time, what with two practises a week and a game that took all of Saturday. I felt that
+                                        I could be spending this time much more productively. Because of these barriers I made the decision
+                                        to stop playing cricket.
+                                    </p>
+                                    <p>A major social influence that was one of the reasons that I started to play cricket was the fact
+                                        that all of my friends were also starting to play cricket at the same time that I was. Because
+                                        of this I wanted to play cricket as well, as hanging out with my friends was always a lot of
+                                        fun. This was a major influence on me playing cricket throughout my life, as playing cricket
+                                        was a great opportunity to talk to my friends and hang out, while also playing a sport that I
+                                        enjoyed immensely. Through playing cricket I was also able to meet new people and make a lot
+                                        of new friends, which also influenced me to keep on playing.
+            
+            
+                                    </p>
+                                    <p>The "stay and play'' research done by SPARC into finding out why an increasing number of teenagers
+                                        are dropping out of sport also supports why my friends influenced me to start and keep playing
+                                        cricket. The research done by SPARC states that one of the main social reasons that teenagers
+                                        stop playing sport is that it is considered "not cool" by their friends. Because a lot of my
+                                        friends also played sport, sport was considered to be the "cool" thing to do, which meant that
+                                        I really wanted to play cricket as a lot of my friends also played it and I was put in the same
+                                        team as them.
+                                    </p>
+                                    <p>A big influence on my decision to play football at intermediate rather than get involved in other
+                                        sports was that a lot of my friends were also playing football. As I enjoyed spending time with
+                                        my friends I naturally wanted to play football as it meant that I would get to spend more time
+                                        with my friends. However, it was also a social influence that was a big reason for me deciding
+                                        to stop playing football and get involved in something else. When I reached intermediate a lot
+                                        of my friends decided to go and play rugby, or were placed in a different football team to me.
+                                        As the social aspect was the biggest reason that I was playing football I decided to stop as
+                                        I was no longer in a team with any of my friends. This is why I did not continue with football
+                                        later on in my life and why I now play rugby.
+                                    </p>
+                                    <p>I valued cricket very highly throughout most of my life, which meant that I continued with this experience
+                                        throughout most of my life. I valued cricket highly for many reasons. One of these was that it
+                                        affected the physical aspect of my hauora positively, which meant that it helped me to keep fit
+                                        and stay healthy. It was good for my aerobic fitness because we were training 3 times a week
+                                        doing long runs and cardio work for one session. Because I was staying reasonably fit and healthy,
+                                        the mental aspect of my hauora was also effected positively, as by staying reasonably fit and
+                                        healthy I felt a lot better about myself mentally. Keeping fit and healthy means I had a body
+                                        shape that I was comfortable with. Another reason that I valued cricket so highly was the social
+                                        aspect. When comparing this to other sports like swimming and athletics which are sports that
+                                        you do by yourself cricket was much more enjoyable. By playing cricket I was able to hang out
+                                        with my mates and also make new friends. This affected the social aspect of my hauora positively,
+                                        as I was spending quite a bit of time with my friends through playing cricket, and I was also
+                                        making quite a few new friends because of cricket. Because I was staying fit and healthy, was
+                                        feeling good about myself, and was making lots of new friend and spending a decent amount of
+                                        time with the friends that I already had, the spiritual aspect of my hauora was also affected
+                                        positively, as through all of these things I gained a lot of confidence in myself, and felt very
+                                        positive about everything that was happening with my cricket. This also had positive aspects
+                                        on other areas of my life such as my school work were because of the positive attitude bought
+                                        on by playing cricket I had a real enthusiasm to get on with my school work. In a sense I had
+                                        a balanced well-being which helped in other areas of my life. Overall, I valued cricket very
+                                        highly, and it was an obvious choice for me to continue with the sport.
+            
+                                    </p>
+                                    <p>Throughout my football career I did not value football very highly. This was because I did not enjoy
+                                        it as much as other sports that I played, and the only real reason that I continued on playing
+                                        it was because my parents wanted me to. I did not enjoy playing football very much because my
+                                        skill level was not as high as other people that I played against, and was seldom put in team
+                                        with my friends</p>
+                                </div>
+                                <hr>
+                                <h2>Feedback</h2>
+                                <div class="feedback-box bordered" id="feedback-box">
+            
+            
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <h4>
+                                                <strong>Patrick: </strong>
+                                            </h4>
+                                        </div>
+                                        <div class="col-md-10 no-padding">
+                                            <p class="bordered feedback-text">Cricket boiz 😎😎</p>
+                                        </div>
+                                    </div>
+            
+            
+                                </div>
+                                <form class="feedback-input">
+                                    <div class="input-group">
+                                        <input type="text" id="feedback" class="form-control" placeholder="Type a message...">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default" type="submit" onclick="sendFeedback()">
+                                                <i class="glyphicon glyphicon-send"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+    </main>
+</body>
+
+</html>
